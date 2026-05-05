@@ -3,203 +3,239 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بُصر الفرص التطوعية</title>
+<title>بُصر | إنشاء فرصة تطوعية</title>
 
 <style>
 body{
-font-family: Arial, sans-serif;
-background:#eef8fb;
-text-align:center;
-padding:30px;
-color:#173b36;
+font-family: Arial;
+background:#f4f8fa;
+margin:0;
+}
+
+.container{
+width:90%;
+max-width:900px;
+margin:30px auto;
 }
 
 .card{
 background:#fff;
-padding:24px;
-border-radius:22px;
-max-width:430px;
-margin:auto;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 h1{
-margin-bottom:25px;
+text-align:center;
+margin-bottom:20px;
+}
+
+.step{
+display:none;
+}
+
+.active{
+display:block;
 }
 
 input,textarea,select{
 width:100%;
-margin:8px 0;
+margin:10px 0;
 padding:12px;
-border-radius:12px;
-border:1px solid #b8dde3;
-font-size:15px;
-box-sizing:border-box;
-font-family: Arial, sans-serif;
-}
-
-textarea{
-min-height:90px;
+border-radius:10px;
+border:1px solid #ccc;
 }
 
 button{
-padding:12px 24px;
+padding:12px 20px;
 border:none;
-border-radius:12px;
-background:#78c2cf;
+border-radius:10px;
+background:#4db3c7;
 color:#fff;
 cursor:pointer;
-font-size:15px;
-margin-top:10px;
 }
 
 button:hover{
-background:#63b2c0;
+background:#3aa0b5;
 }
 
-.hidden{
-display:none;
+.nav{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
 }
 
-.msg{
-margin-top:12px;
-font-weight:bold;
-color:#45635d;
+.progress{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.progress div{
+width:18%;
+text-align:center;
+padding:8px;
+border-radius:10px;
+background:#ddd;
+}
+
+.progress .done{
+background:#4db3c7;
+color:#fff;
 }
 </style>
 </head>
 
 <body>
 
-<h1>بُصر الفرص التطوعية</h1>
+<div class="container">
 
-<div class="card" id="loginBox">
-<h3>تسجيل الدخول</h3>
+<h1>إنشاء فرصة تطوعية</h1>
 
-<input id="email" type="email" placeholder="البريد الإلكتروني">
-<input id="pass" type="password" placeholder="كلمة المرور">
-
-<button onclick="login()">دخول</button>
-
-<p id="msg" class="msg"></p>
+<div class="progress">
+<div id="p1" class="done">1</div>
+<div id="p2">2</div>
+<div id="p3">3</div>
+<div id="p4">4</div>
+<div id="p5">5</div>
 </div>
 
-<div class="card hidden" id="formBox">
-<h3>إدخال فرصة تطوعية</h3>
+<div class="card">
+
+<!-- خطوة 1 -->
+<div class="step active" id="step1">
+<h3>تفاصيل الفرصة</h3>
 
 <input id="title" placeholder="مسمى الفرصة">
-
 <textarea id="desc" placeholder="وصف الفرصة"></textarea>
 
 <select id="field">
-<option value="">اختر مجال التطوع</option>
+<option>اختر مجال التطوع</option>
+<option>تعليمي</option>
 <option>صحي</option>
 <option>بيئي</option>
-<option>قانوني</option>
-<option>تعليمي</option>
-<option>ديني</option>
-<option>اجتماعي وإنساني</option>
-<option>ثقافي</option>
-<option>فني وإبداعي</option>
 <option>إعلامي</option>
-<option>رياضي</option>
-<option>سياحي</option>
-<option>ترفيهي</option>
-<option>تقنية المعلومات</option>
-<option>إداري</option>
-<option>الأمن والسلامة</option>
-<option>هندسي</option>
-<option>البحث العلمي والابتكار</option>
+<option>تقني</option>
+<option>اجتماعي</option>
 </select>
 
-<input id="vol" type="number" placeholder="عدد المتطوعين">
-<input id="hours" type="number" placeholder="إجمالي الساعات">
 <input id="manager" placeholder="اسم المدير">
+</div>
+
+<!-- خطوة 2 -->
+<div class="step" id="step2">
+<h3>خصائص الفرصة</h3>
+
+<select id="level">
+<option>مستوى التطوع</option>
+<option>عام</option>
+<option>مهاري</option>
+<option>احترافي</option>
+</select>
+
+<select id="type">
+<option>نوع المشاركة</option>
+<option>فردي</option>
+<option>جماعي</option>
+</select>
+
+<select id="remote">
+<option>هل عن بعد؟</option>
+<option>نعم</option>
+<option>لا</option>
+</select>
+</div>
+
+<!-- خطوة 3 -->
+<div class="step" id="step3">
+<h3>تفاصيل المتطوعين</h3>
+
+<input id="vol" type="number" placeholder="عدد المتطوعين">
+
+<select id="age">
+<option>الفئة العمرية</option>
+<option>18-25</option>
+<option>26-35</option>
+<option>جميع الأعمار</option>
+</select>
+
+<select id="gender">
+<option>الجنس</option>
+<option>ذكر</option>
+<option>أنثى</option>
+<option>كلاهما</option>
+</select>
+</div>
+
+<!-- خطوة 4 -->
+<div class="step" id="step4">
+<h3>الفترات</h3>
+
+<input id="date" type="date">
+<input id="timeStart" type="time">
+<input id="timeEnd" type="time">
+<input id="hours" type="number" placeholder="إجمالي الساعات">
+</div>
+
+<!-- خطوة 5 -->
+<div class="step" id="step5">
+<h3>المراجعة</h3>
+
+<p>تأكد من البيانات ثم اضغط إرسال</p>
 
 <button onclick="send()">إرسال الفرصة</button>
 
-<p id="msg2" class="msg"></p>
+<p id="msg"></p>
+</div>
+
+<div class="nav">
+<button onclick="prev()">السابق</button>
+<button onclick="next()">التالي</button>
+</div>
+
+</div>
+
 </div>
 
 <script>
-const url = "https://script.google.com/macros/s/AKfycbwB4_j-UOn4IGWlqsIiQQK69g4pJ3lTaflV32NMV0-sNaqYctRsT0KxRcLyJtsd84K49Q/exec";
+let step = 1;
 
-let user = {};
+// 🔴 ضع رابط Apps Script هنا
+const url = "PUT_YOUR_SCRIPT_URL_HERE";
 
-function login(){
-const emailValue = document.getElementById("email").value.trim();
-const passValue = document.getElementById("pass").value.trim();
+function show(){
+document.querySelectorAll(".step").forEach(s=>s.classList.remove("active"));
+document.getElementById("step"+step).classList.add("active");
 
-if(!emailValue || !passValue){
-msg.innerText = "أدخلي البريد وكلمة المرور";
-return;
+document.querySelectorAll(".progress div").forEach(p=>p.classList.remove("done"));
+for(let i=1;i<=step;i++){
+document.getElementById("p"+i).classList.add("done");
+}
 }
 
-msg.innerText = "جارٍ التحقق...";
-
-fetch(`${url}?action=login&email=${encodeURIComponent(emailValue)}&pass=${encodeURIComponent(passValue)}`)
-.then(r => r.json())
-.then(d => {
-if(d.status === "ok"){
-user = d;
-loginBox.classList.add("hidden");
-formBox.classList.remove("hidden");
-msg.innerText = "";
-}else if(d.status === "inactive"){
-msg.innerText = "الحساب غير نشط";
-}else if(d.status === "wrong_pass"){
-msg.innerText = "كلمة المرور غير صحيحة";
-}else if(d.status === "not_found"){
-msg.innerText = "البريد غير مسجل";
-}else{
-msg.innerText = "تعذر الدخول";
+function next(){
+if(step<5){step++; show();}
 }
-})
-.catch(() => {
-msg.innerText = "تعذر الاتصال بالرابط";
-});
+
+function prev(){
+if(step>1){step--; show();}
 }
 
 function send(){
-if(!title.value.trim() || !desc.value.trim() || !field.value.trim() || !vol.value.trim() || !hours.value.trim() || !manager.value.trim()){
-msg2.innerText = "أكملي جميع الحقول";
-return;
-}
-
-msg2.innerText = "جارٍ الإرسال...";
-
 fetch(url,{
 method:"POST",
 body:JSON.stringify({
 action:"createOpportunity",
-email:user.email,
-pass:pass.value,
-role:user.role,
 title:title.value,
 description:desc.value,
 field:field.value,
+manager:manager.value,
 volunteers:vol.value,
-hours:hours.value,
-manager:manager.value
+hours:hours.value
 })
-})
-.then(r => r.json())
-.then(d => {
-if(d.status === "ok"){
-msg2.innerText = "تم إرسال الفرصة بنجاح ✔";
-title.value = "";
-desc.value = "";
-field.value = "";
-vol.value = "";
-hours.value = "";
-manager.value = "";
-}else{
-msg2.innerText = "تعذر الإرسال: " + d.status;
-}
-})
-.catch(() => {
-msg2.innerText = "تعذر الاتصال أثناء الإرسال";
 });
+
+msg.innerText = "تم إرسال الفرصة ✔";
 }
 </script>
 
