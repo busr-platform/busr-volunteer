@@ -141,15 +141,46 @@ busr2026@gmail.com | تطوير بُصر
 </div>
 
 <script>
+<script>
 function login() {
-const email = document.getElementById("email").value;
+    const email = document.getElementById("email").value.trim().toLowerCase();
 
-// مؤقتًا (إلى أن نربط الشيت)
-if(email === "busr2026@gmail.com"){
-alert("تم الدخول كمسؤولة النظام 👑");
-} else {
-document.getElementById("errorMsg").style.display = "block";
+    if (email === "busr2026@gmail.com") {
+        alert("تم الدخول كمسؤولة النظام 👑");
+
+        document.querySelector(".card").innerHTML = `
+            <div class="title">تم الدخول بنجاح 👑</div>
+
+            <div style="background:#eef6f5;border-radius:16px;padding:16px;line-height:2;margin-bottom:15px;">
+                <b>البريد:</b> busr2026@gmail.com<br>
+                <b>الدور:</b> مسؤولة النظام<br>
+                <b>الصلاحية:</b> كامل الصلاحيات
+            </div>
+
+            <button class="btn" onclick="showOpportunityForm()">إدخال فرصة تطوعية</button>
+            <button class="btn" onclick="showAdminPanel()">متابعة واعتماد الفرص</button>
+
+            <div id="workArea" style="margin-top:20px;"></div>
+        `;
+    } else {
+        document.getElementById("errorMsg").style.display = "block";
+    }
 }
+
+function showOpportunityForm() {
+    document.getElementById("workArea").innerHTML = `
+        <h3>إدخال فرصة تطوعية</h3>
+        <input type="text" placeholder="اسم الفرصة" style="margin-bottom:10px;">
+        <input type="number" placeholder="عدد المتطوعين">
+        <button class="btn">إرسال</button>
+    `;
+}
+
+function showAdminPanel() {
+    document.getElementById("workArea").innerHTML = `
+        <h3>لوحة مسؤولة النظام</h3>
+        <p>هنا ستظهر الفرص للاعتماد والمتابعة.</p>
+    `;
 }
 </script>
 
