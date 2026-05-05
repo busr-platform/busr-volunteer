@@ -2,229 +2,156 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بُصر الفرص التطوعية</title>
+<title>بُصر | تسجيل الدخول</title>
+
 <style>
-:root{--hero:#98d4df;--hero2:#b9e6ed;--btn:#78c2cf;--btn-hover:#63b2c0;--soft:#eef9fb;--section:#dff3f7;--border:#c9e6ea;--ink:#173b36;--muted:#45635d;--card:#fff}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef8fb,#f7fcfd);color:var(--ink);direction:rtl;text-align:right}
-body::before{content:"بُصر";position:fixed;top:52%;left:50%;transform:translate(-50%,-50%) rotate(-18deg);font-size:120px;font-weight:bold;color:#8fcfd8;opacity:.055;z-index:0;pointer-events:none;white-space:nowrap}
-.page{width:min(1160px,94%);margin:auto;padding:24px 0 44px;position:relative;z-index:1}
-.hero{background:linear-gradient(135deg,var(--hero),var(--hero2));padding:28px 30px;border-radius:26px;margin-bottom:18px;box-shadow:0 16px 35px rgba(120,194,207,.18);text-align:center;border:1px solid #8fcfd8}
-.hero h1{margin:0 0 10px;font-size:29px;text-align:center}.hero .tagline{margin:0;font-size:16px;line-height:1.9;font-weight:bold;color:#173b36}
-.card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:22px;margin-bottom:20px;box-shadow:0 14px 32px rgba(23,59,54,.07)}
-h2{margin:0 0 18px;padding-bottom:14px;border-bottom:2px solid #e3f2f5;text-align:center;color:#173b36;font-size:26px}
-.hint,.guideBox{background:var(--soft);border-right:7px solid var(--btn);padding:12px 16px;border-radius:14px;margin-bottom:16px;color:#45635d;font-size:14px;line-height:1.8}
-.section-title{background:var(--section);color:#173b36;padding:13px 16px;border-radius:14px;font-weight:bold;font-size:17px;margin:24px 0 16px;border:1px solid var(--border)}
-.grid{display:grid;gap:14px}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.full{grid-column:1/-1}
-.field{background:rgba(238,249,251,.56);border:1px solid #d8ecef;border-radius:18px;padding:14px;min-width:0}
-label{display:block;font-weight:bold;margin:0 0 8px}.req{color:#8b1a1a}.optional{font-weight:normal;color:#63877c;font-size:13px}
-input,textarea,select{width:100%;border:1px solid #b8dde3;border-radius:14px;padding:11px 13px;font-family:Arial,sans-serif;font-size:15px;background:#f7fcfd;color:var(--ink);direction:rtl;text-align:right;min-height:45px;line-height:1.7}
-textarea{min-height:104px;resize:vertical}input:focus,textarea:focus,select:focus{outline:none;background:#eef9fb;border-color:#78c2cf;box-shadow:0 0 0 3px rgba(120,194,207,.18)}
-.small{font-size:13px;color:var(--muted);line-height:1.7;margin-top:7px}
-.choices{display:flex;gap:12px;flex-wrap:wrap;padding:12px;border:1px solid var(--border);border-radius:16px;background:#fff}
-.choices label{margin:0;font-weight:normal;display:inline-flex;align-items:center;gap:6px}.choices input{width:auto;min-height:auto}
-.actions,.topActions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}button{cursor:pointer;font-family:Arial,sans-serif;font-size:15px;min-height:44px}
-.primary{background:var(--btn);color:#fff;border:none;padding:12px 24px;border-radius:18px;font-weight:bold;box-shadow:0 6px 14px rgba(120,194,207,.25)}
-.primary:hover{background:var(--btn-hover)}.secondary{background:#fff;color:#45635d;border:1px solid #9bcdd5;padding:12px 24px;border-radius:18px;font-weight:bold}
-.dark{background:#173b36;color:#fff;border:0;padding:12px 24px;border-radius:18px;font-weight:bold}
-.hidden{display:none!important}.footer{text-align:center;color:#63877c;margin-top:30px;font-size:13px}
-.summary{background:#fbfeff;border:1px dashed #9bcdd5;border-radius:18px;padding:14px;line-height:1.9}
-.validationBox{display:none;background:#fff7f7;border:1px solid #e1b5b5;color:#682424;border-radius:18px;padding:14px;margin:14px 0;line-height:1.9}
-.status.ok{display:block;background:#f1fbf6;color:#174b32;border:1px solid #a9d8bd}.status.err{display:block;background:#fff7f7;color:#7a2525;border:1px solid #e1b5b5}
-.is-missing{border-color:#c75b5b!important;box-shadow:0 0 0 3px rgba(199,91,91,.12)!important}
-.accountBar{background:#fff;border:1px solid var(--border);border-right:7px solid #5d9ea7;border-radius:20px;padding:14px 18px;margin-bottom:16px;display:flex;gap:10px;align-items:center;justify-content:flex-start;font-size:20px;font-weight:bold;direction:rtl;text-align:right}
-.accountBar span{direction:rtl}.userIcon{font-size:24px;color:#0b1020;line-height:1}.guideBox{display:flex;justify-content:space-between;align-items:center;gap:12px}.guideBtn{width:auto;margin:0}
-.loginInfo{background:#eef9fb;border-right:7px solid #5d9ea7;border-radius:18px;padding:16px;line-height:2;margin-bottom:18px;font-weight:bold}.infoValue{color:#5d9ea7;font-weight:bold}
-.item{border:1px solid var(--border);border-radius:18px;background:#fbfeff;padding:14px;margin-bottom:12px;line-height:1.9}
-.itemActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.miniInput{max-width:250px;display:inline-block;margin-inline-start:8px}
-@media(max-width:850px){.page{width:94%;padding-top:10px}.hero{padding:22px 18px}.hero h1{font-size:23px}.hero .tagline{font-size:14px}.grid-2,.grid-3{grid-template-columns:1fr}.actions,.topActions,.guideBox{flex-direction:column}button,.guideBtn{width:100%}.card{padding:18px}body::before{font-size:78px}.choices{display:block}.choices label{display:flex;width:100%;margin:8px 0}.accountBar{font-size:16px;flex-wrap:wrap;justify-content:flex-start}}
+body {
+margin: 0;
+font-family: "Tahoma", sans-serif;
+background: #f5f7f6;
+}
+
+/* الحاوية */
+.container {
+max-width: 600px;
+margin: 60px auto;
+padding: 20px;
+}
+
+/* الهيدر */
+.header {
+background: linear-gradient(135deg,#cde7e3,#b7d8d3);
+padding: 25px;
+border-radius: 20px;
+margin-bottom: 25px;
+}
+
+.header h1 {
+margin: 0;
+font-size: 26px;
+}
+
+.header p {
+margin-top: 8px;
+color: #2f4f4f;
+}
+
+/* بطاقة الدخول */
+.card {
+background: white;
+padding: 25px;
+border-radius: 20px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* عنوان */
+.title {
+font-size: 22px;
+margin-bottom: 20px;
+}
+
+/* صف الإدخال */
+.input-row {
+display: flex;
+align-items: center;
+border: 2px solid #d8e6e3;
+border-radius: 14px;
+padding: 10px 15px;
+background: #fff;
+}
+
+/* الإيميل */
+.input-row input {
+border: none;
+outline: none;
+font-size: 16px;
+width: 100%;
+direction: ltr;
+}
+
+/* الأيقونة */
+.icon {
+font-size: 18px;
+margin-right: 10px;
+}
+
+/* زر الدخول */
+.btn {
+margin-top: 15px;
+background: #4fa7a1;
+color: white;
+border: none;
+padding: 10px 25px;
+border-radius: 12px;
+cursor: pointer;
+}
+
+/* رسالة الخطأ */
+.error {
+margin-top: 15px;
+background: #fdeeee;
+color: #7a2f2f;
+padding: 12px;
+border-radius: 12px;
+text-align: center;
+font-size: 15px;
+}
+
+/* الفوتر */
+.footer {
+margin-top: 20px;
+text-align: center;
+color: #666;
+font-size: 13px;
+}
 </style>
 </head>
+
 <body>
-<div class="page">
-  <div class="hero"><h1>بُصر الفرص التطوعية</h1><p class="tagline">ثمَّةَ فرصة في كلِّ حين لسعيٍّ نبيل وبإجراءٍ يسير</p></div>
 
-  <section class="card" id="loginCard">
-    <h2>بوابة الدخول</h2>
-    <div class="hint">يتم التحقق من البريد الإلكتروني ورمز الدخول وحالة المُستخدِم من خلال بيانات بُصر.</div>
-    <div id="loginStatus" class="validationBox"></div>
-    <div class="grid grid-2">
-      <div class="field"><label>فضلًا كتابة البريد الإلكتروني <span class="req">*</span></label><input type="email" id="loginEmail" placeholder="busr2026@gmail.com"></div>
-      <div class="field"><label>رمز الدخول <span class="req">*</span></label><input type="password" id="loginPass" placeholder="رمز الدخول"></div>
-    </div>
-    <div class="actions"><button type="button" class="primary" onclick="login()">دخول</button></div>
-  </section>
+<div class="container">
 
-  <section class="card hidden" id="formCard">
-    <div class="accountBar"><span class="userIcon">♟</span><span id="topEmail"></span><span>|</span><span id="userRoleLabel">منسق</span></div>
-    <div class="topActions"><button type="button" class="primary" onclick="showFormOnly()">إدخال فرصة جديدة</button><button type="button" class="secondary" onclick="loadFollowUp()">متابعة الفرص والاعتماد</button></div>
+<div class="header">
+<h1>بُصر الفرص التطوعية</h1>
+<p>ثقة فرصة في كل حين سعيٌ نبيل وبإجراءٍ يسير</p>
+</div>
 
-    <div id="followUpCard" class="hidden">
-      <h2>متابعة الفرص والاعتماد</h2>
-      <div id="followUpStatus" class="validationBox"></div>
-      <div id="followUpList"></div>
-    </div>
+<div class="card">
+<div class="title">بوابة الدخول</div>
 
-    <div id="formArea">
-      <h2>إنشاء فرصة تطوعية</h2>
-      <div class="guideBox">
-        <span>فضلًا الاطلاع على دليل إنشاء الفرص التطوعية قبل تعبئة البيانات.</span>
-        <button type="button" class="secondary guideBtn" onclick="openVolunteerGuide()">دليل إنشاء الفرص التطوعية</button>
-      </div>
+<!-- الإيميل -->
+<div class="input-row">
+<input id="email" type="text" value="busr2026@gmail.com">
+<div class="icon">👤</div>
+</div>
 
-      <div class="loginInfo">
-        <div><b>الجهة:</b> <span class="infoValue">الإدارة العامة للتعليم بمحافظة الطائف</span></div>
-        <div><b>المدرسة/الإدارة:</b> <span class="infoValue" id="schoolName"></span></div>
-        <div><b>المدينة:</b> <span class="infoValue" id="cityName">الطائف</span></div>
-        <div><b>المنسق:</b> <span class="infoValue" id="coordinatorName"></span></div>
-        <div><b>المرحلة:</b> <span class="infoValue" id="stageName"></span></div>
-        <div><b>المشرف المرتبط:</b> <span class="infoValue" id="linkedSupervisorName"></span></div>
-      </div>
+<button class="btn" onclick="login()">دخول</button>
 
-      <div id="validationBox" class="validationBox"></div>
-      <form id="opportunityForm" novalidate>
-        <div class="section-title">أولًا: البيانات الأساسية للفرصة</div>
-        <div class="grid grid-2">
-          <div class="field full"><label>مسمى الفرصة <span class="req">*</span></label><input name="opportunityTitle" data-label="مسمى الفرصة" required placeholder="اكتب مسمى الفرصة"></div>
-          <div class="field full"><label>وصف الفرصة <span class="req">*</span></label><textarea name="opportunityDescription" data-label="وصف الفرصة" required placeholder="اكتب وصفًا واضحًا ومختصرًا لطبيعة الفرصة"></textarea></div>
-          <div class="field"><label>مجال التطوع الرئيسي <span class="req">*</span></label><select name="mainField" id="mainField" data-label="مجال التطوع الرئيسي" required onchange="updateSubFields()"><option value="">اختر المجال الرئيسي</option></select></div>
-          <div class="field"><label>مجال التطوع الفرعي <span class="optional">اختياري بحسب المجال</span></label><select name="subField" id="subField"><option value="">اختر المجال الفرعي</option></select><div id="subFieldNote" class="small hidden">هذا المجال لا يحتوي على خيارات فرعية في النموذج.</div></div>
-          <div class="field"><label>الجهة الشريكة إن وجدت <span class="optional">اختياري</span></label><input name="partnerEntity" placeholder="اختياري"></div>
-          <div class="field"><label>قيمة المهمة التقريبية للساعة الواحدة <span class="req">*</span></label><input name="hourValue" data-label="قيمة المهمة التقريبية للساعة الواحدة" type="number" min="25" value="25" required><div class="small">الحد الأدنى 25 ريال لكل ساعة.</div></div>
-          <div class="field full"><label>الفوائد العائدة على الجهة <span class="req">*</span></label><div class="choices required-group" data-label="الفوائد العائدة على الجهة" data-name="organizationBenefits" id="organizationBenefitsBox"></div></div>
-        </div>
+<!-- رسالة الخطأ -->
+<div id="errorMsg" class="error" style="display:none;">
+لا توجد صلاحية محددة لهذا البريد.
+</div>
 
-        <div class="section-title">ثانيًا: خصائص الفرصة</div>
-        <div class="grid grid-2">
-          <div class="field"><label>مستوى التطوع <span class="req">*</span></label><select name="volunteeringLevel" data-label="مستوى التطوع" required><option value="">اختر</option><option>عام</option><option>مهاري</option><option>احترافي</option></select></div>
-          <div class="field"><label>نوع المشاركة <span class="req">*</span></label><select name="participationType" data-label="نوع المشاركة" required><option value="">اختر</option><option>فردي</option><option>جماعي</option></select></div>
-          <div class="field"><label>هل تعتبر الفرصة عاجلة؟ <span class="req">*</span></label><div class="choices required-group" data-label="هل تعتبر الفرصة عاجلة؟" data-name="isUrgent"><label><input type="radio" name="isUrgent" value="نعم، الفرصة عاجلة">نعم</label><label><input type="radio" name="isUrgent" value="لا، الفرصة ليست عاجلة">لا</label></div></div>
-          <div class="field"><label>النشر بعد القبول <span class="optional">اختياري</span></label><select name="publishAfterAcceptance"><option value="">اختر</option><option>نعم، أرغب في النشر مباشرة</option><option>لا، أرغب في النشر في وقت آخر</option></select></div>
-          <div class="field"><label>هل هذه الفرصة متاحة عن بُعد؟ <span class="optional">اختياري</span></label><div class="choices"><label><input type="radio" name="isRemote" value="نعم، الفرصة عن بعد">نعم</label><label><input type="radio" name="isRemote" value="لا، الفرصة تتطلب الحضور">لا</label></div></div>
-          <div class="field"><label>الموقع <span class="req">*</span></label><input name="location" data-label="الموقع" required placeholder="اكتب الموقع أو رابط الموقع على الخريطة"></div>
-        </div>
+</div>
 
-        <div class="section-title">ثالثًا: تفاصيل المتطوعين</div>
-        <div class="grid grid-2">
-          <div class="field"><label>نوع المتطوعين <span class="req">*</span></label><select name="volunteerType" data-label="نوع المتطوعين" required><option value="">اختر</option><option>الكل</option><option>أفراد</option><option>فرق تطوعية</option><option>متطوعي الجهة</option><option>متطوعي المدينة</option><option>متطوعي المنطقة</option></select></div>
-          <div class="field"><label>الفئة العمرية <span class="req">*</span></label><select name="ageGroup" data-label="الفئة العمرية" required><option value="">اختر</option><option>18 - 25 سنة</option><option>26 - 35 سنة</option><option>36 - 45 سنة</option><option>46 - 55 سنة</option><option>56 - 90 سنة</option><option>جميع الأعمار</option></select></div>
-          <div class="field"><label>الجنس <span class="req">*</span></label><div class="choices required-group" data-label="الجنس" data-name="gender"><label><input type="radio" name="gender" value="ذكر">ذكر</label><label><input type="radio" name="gender" value="أنثى">أنثى</label><label><input type="radio" name="gender" value="كلاهما">كلاهما</label></div></div>
-          <div class="field"><label>هل الفرصة مناسبة لذوي الإعاقة؟ <span class="req">*</span></label><select name="disabilitySuitability" data-label="مناسبة لذوي الإعاقة" required><option value="">اختر</option><option>الفرصة غير مناسبة لجميع ذوي الإعاقة</option><option>نعم الفرصة مناسبة للجميع</option><option>الفرصة مناسبة لبعض ذوي الإعاقة</option></select></div>
-        </div>
+<div class="footer">
+busr2026@gmail.com | تطوير بُصر
+</div>
 
-        <div class="section-title">رابعًا: المؤهلات والمتطلبات</div>
-        <div class="grid grid-2">
-          <div class="field full"><label>مهام المتطوع <span class="req">*</span> <span class="optional">اختياري</span></label><div class="choices required-group" id="tasksBox" data-label="مهام المتطوع" data-name="volunteerTasks"></div></div>
-          <div class="field full"><label>المهارات المطلوبة <span class="req">*</span> <span class="optional">اختياري</span></label><div class="choices required-group" id="skillsBox" data-label="المهارات المطلوبة" data-name="requiredSkills"></div></div>
-          <div class="field"><label>اللغة المطلوبة <span class="optional">اختياري</span></label><select name="language"><option value="">اختر اللغة المطلوبة</option><option>العربية</option><option>الإنجليزية</option><option>أخرى</option></select></div>
-          <div class="field"><label>هل تتطلب مقابلة شخصية؟ <span class="optional">اختياري</span></label><div class="choices"><label><input type="radio" name="requiresInterview" value="نعم، تتطلب مقابلة شخصية">نعم</label><label><input type="radio" name="requiresInterview" value="لا، لا تتطلب مقابلة شخصية">لا</label></div></div>
-          <div class="field"><label>هل يوجد متطلبات إضافية من المتطوع؟ <span class="optional">اختياري</span></label><div class="choices"><label><input type="radio" name="hasAdditionalRequirements" value="نعم" onchange="toggleAdditionalRequirements('نعم')">نعم</label><label><input type="radio" name="hasAdditionalRequirements" value="لا" onchange="toggleAdditionalRequirements('لا')">لا</label></div></div>
-          <div class="field hidden" id="additionalReqBox"><label>ما هي المتطلبات الإضافية؟</label><textarea name="additionalRequirements" placeholder="اكتب المتطلبات الإضافية"></textarea></div>
-        </div>
-
-        <div class="section-title">خامسًا: محتوى الفرصة والدعم</div>
-        <div class="grid grid-2">
-          <div class="field full"><label>الفوائد العائدة على المتطوع <span class="optional">اختياري</span></label><div class="choices" id="volunteerBenefitsBox"></div></div>
-          <div class="field full"><label>الدعم المقدم من الجهة للمتطوع <span class="req">*</span> <span class="optional">اختياري</span></label><div class="choices required-group" id="supportBox" data-label="الدعم المقدم من الجهة للمتطوع" data-name="supportProvided"></div></div>
-        </div>
-
-        <div class="section-title">سادسًا: الفترات</div>
-        <div class="hint">يرجى تحديد الجدول الزمني للفرصة، على ألا يتجاوز 30 يومًا للفرصة.</div>
-        <div id="periodsList"></div>
-        <div class="actions"><button type="button" class="secondary" onclick="addPeriod()">+ إضافة فترة جديدة</button></div>
-
-        <div class="section-title">سابعًا: المرفقات والمواد الداعمة</div>
-        <div class="grid grid-2">
-          <div class="field"><label>رابط الفيديو <span class="optional">اختياري</span></label><input name="videoLink" type="text" inputmode="url" placeholder="https:// أو www"></div>
-          <div class="field"><label>رابط الشواهد / المرفقات <span class="optional">اختياري</span></label><input name="evidenceLink" id="evidenceLink" type="text" inputmode="url" placeholder="رابط Drive أو رابط الشواهد"></div>
-        </div>
-
-        <div class="section-title">ثامنًا: التحضير واسم المدير</div>
-        <div class="grid grid-2">
-          <div class="field full">
-            <label>التحضير <span class="optional">اختياري</span></label>
-            <div id="attendanceList"></div>
-            <div class="actions"><button type="button" class="secondary" onclick="addAttendanceName()">+ إضافة اسم متطوع</button></div>
-            <div class="small">يمكن إضافة حتى 50 اسمًا، وكل اسم في حقل مستقل.</div>
-          </div>
-          <div class="field full"><label>اسم المدير <span class="req">*</span></label><input name="schoolManagerName" data-label="اسم المدير" required placeholder="اكتب اسم المدير"></div>
-        </div>
-
-        <div class="section-title">تاسعًا: المراجعة والإرسال</div>
-        <div class="summary"><label><input type="checkbox" name="acknowledgement" data-label="الإقرار بصحة وسلامة المعلومات" required style="width:auto;min-height:auto"> أقر بصحة وسلامة المعلومات والمستندات والوثائق المدخلة <span class="req">*</span></label></div>
-        <div class="actions"><button type="button" class="secondary" onclick="checkRequiredFields()">فحص الحقول</button><button type="submit" class="primary">إرسال الفرصة ✨</button><button type="button" class="dark" onclick="sendEvidenceToSupervisor()">📎 إرسال الشواهد للمشرف</button></div>
-        <div id="bottomStatus" class="validationBox"></div>
-      </form>
-    </div>
-  </section>
-  <div class="footer">تطوير بُصر | busr2026@gmail.com</div>
 </div>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbyAQdy6DYpMUA0XjgquBq4S82YlaqMNSR_FogKt3nQEXZBGR_-dNd9h2Y-bPE23YztE/exec";
-const volunteerGuideURL = "https://drive.google.com/file/d/1p67nwM8OppeKXt8pBcqIjUXNlkOMRY4h/view?usp=sharing";
+function login() {
+const email = document.getElementById("email").value;
 
-const mainSupervisors=["الجوهرة السحيم","بدرية الثمالي","شريفة الثمالي","عهود حلواني","منيرة الناصري","نايف الزهراني","نورة البيشي"];
-const subFields={"صحي":["الصحة النفسية","الصحة العامة","التغذية","التوعية الصحية","دعم المرضى","حملات التطعيم","الإسعافات الأولية","تأهيلي","خدمة ضيوف الرحمن"],"بيئي":["ترشيد استهلاك الطاقة والمياه","حفظ النعمة وتقليل هدر الطعام","تنسيق الحدائق","التشجير والزراعة","النظافة العامة","تنظيف الشواطئ","إدارة النفايات وإعادة التدوير","حماية ورعاية الحيوانات والحياة الفطرية","حماية الحياة البحرية","التوعية البيئية","خدمة ضيوف الرحمن"],"قانوني":["الاستشارات القانونية","التوعية القانونية","خدمة ضيوف الرحمن"],"تعليمي":["تربوي","التدريب والتطوير","التدريس والتعليم","الأنشطة اللاصفية","الإرشاد المهني","خدمة ضيوف الرحمن"],"ديني":["تنظيم المصلين","العناية بالمساجد والجوامع","برامج رمضانية","تحفيظ القرآن","الدعوة والإرشاد","تعليم العلوم الشرعية","إكرام الموتى","خدمة ضيوف الرحمن"],"اجتماعي وإنساني":["رعاية الأيتام","رعاية المسنين","رعاية المرضى","التكافل والتنمية الاجتماعية","رعاية ذوي الإعاقة","سقيا الماء والضيافة","خدمة ضيوف الرحمن"],"ثقافي":["الفنون والأدب","التراث","الشعر والأدب","المتاحف والمعارض","الفعاليات والاحتفالات الثقافية","التوعية الثقافية","المكتبات الثقافية","المسرح","خدمة ضيوف الرحمن"],"فني وإبداعي":["تصميم الهوية البصرية","تصميم الشعارات","تصميم الإعلانات","تصميم المطبوعات","تصميم التعبئة والتغليف","تصميم الرسوم التوضيحية","رسومات متحركة","تصميم الوسائط والمنشورات","تصميم العروض التقديمية","التصميم الجرافيكي","الرسم والتلوين","الخط العربي","الحرف اليدوية","خدمة ضيوف الرحمن"],"إعلامي":["التواصل المؤسسي","العلاقات العامة","الإعلام","إدارة وسائل التواصل الاجتماعي","التصوير","الإنتاج الفني","إعداد المحتوى","كتابة المحتوى","المونتاج والإخراج","التسويق الإعلامي","التغطية الإعلامية","خدمة ضيوف الرحمن"],"رياضي":["تنظيم الفعاليات الرياضية","تدريب الناشئين","تحكيم البطولات","نشر ثقافة النشاط البدني","مدرب","خدمة ضيوف الرحمن"],"سياحي":["الإرشاد السياحي","تنظيم الفعاليات السياحية","الترجمة السياحية","التوعية بالمواقع الأثرية","خدمة ضيوف الرحمن"],"ترفيهي":["الأنشطة الترفيهية","تنظيم الفعاليات الترفيهية","خدمة ضيوف الرحمن"],"تقنية المعلومات":["بناء موقع إلكتروني","بناء تطبيق","تحليل بيانات","إدارة البيانات","الذكاء الاصطناعي","البرمجة","الأمن السيبراني","تصميم واجهات المستخدم","إدارة الأنظمة التقنية","خدمة ضيوف الرحمن"],"إداري":["المالية","المحاسبة","التسويق","الموارد البشرية","التخطيط والاستراتيجية","الشراكات","تطوير الأعمال","إدارة المشاريع","الحوكمة","إدارة التبرعات","التواصل والتنسيق","تنظيم الملفات","إدخال البيانات","إعداد التقارير","اللوجستيات","إدارة المخاطر","تنظيمي","المساعدة في الأعمال المكتبية","خدمات عامة","خدمة ضيوف الرحمن"],"الأمن والسلامة":["السلامة المهنية","السلامة العامة","السلامة المرورية","السلامة البيئية","خدمة ضيوف الرحمن"],"هندسي":["هندسة مدنية","هندسة معمارية","هندسة كهربائية","هندسة صناعية","هندسة كيميائية","خدمة ضيوف الرحمن"],"التطوير العمراني":["الترميم والصيانة","تجهيز الوحدات السكنية","تجميل وتخطيط المناطق الحضرية","خدمة ضيوف الرحمن"],"البحث العلمي والابتكار":["البحث العلمي","الدراسات الميدانية","جمع البيانات البحثية","الابتكار والتطوير","التوثيق البحثي","نشر الأبحاث","خدمة ضيوف الرحمن"],"إطفاء الحرائق":[],"الاستجابة للكوارث الطبيعية":[],"دعم فرق الطوارئ":[],"الإخلاء":[],"إيواء المتضررين":[],"البحث عن المفقودين":[],"إنقاذ العالقين":[]};
-const organizationBenefits=["تخفيف الأعباء المالية على الجهة","دعم تحقيق مستهدفات المنظمة","توسيع الوصول إلى الفئات المستفيدة","الاستفادة من المهارات والخبرات","استقطاب الكفاءات والمواهب","تعزيز المسؤولية المجتمعية","تعزيز الابتكار والإبداع المؤسسي"];
-const tasks=["إدخال البيانات","الأرشفة","إعداد التقارير","إعداد المراسلات","التنسيق","الجدولة","المتابعة","الرد على الاستفسارات","المحاسبة","المراجعة","جمع التبرعات","تنظيم الفعاليات","إدارة التسجيل","الاستقبال","إدارة الحشود","إدارة وسائل التواصل","الكتابة","التصوير","المونتاج","التغطية الإعلامية","التطوير","البرمجة","الصيانة","الدعم الفني","تحليل البيانات","التصميم","الرسم","التدريس","التدريب","التقييم","الإشراف","التوجيه","الإسعافات الأولية","التمريض","التوعية","الرعاية","إعداد الطعام","توزيع الوجبات","الضيافة","خدمة العملاء","الإرشاد","الترجمة","التوثيق","البحث","جمع البيانات","الفرز","التعبئة","الترتيب","النقل","إدارة المخزون","التنظيف","الإمامة","الزراعة","جمع النفايات","رعاية الحيوانات","الاستشارات","الصياغة","الوساطة","الإصلاح","الترميم","التحكيم","الزيارات","توزيع المساعدات","المرافقة","التفتيش","المراقبة","تقييم المخاطر","الاستقبال والترحيب"];
-const skills=["التحليل الإحصائي","التفكير النقدي","التفكير الإبداعي والابتكار","تصميم التجارب البحثية","التواصل الفعال","إدارة الوقت","القيادة","التفاوض","إدارة الضغوط","التفكير التحليلي","اتخاذ القرار","الذكاء العاطفي","حل النزاعات","إدارة الأولويات","التخطيط والتنظيم","المرونة والتكيف","تحليل البيانات","الإلقاء والخطابة","التدريب والتدريس","إدارة المخاطر","العمل الجماعي والتعاون","الالتزام والانضباط","حل المشكلات","التواصل والتعامل مع ذوي الاحتياجات الخاصة","الإعلام","الإدارة"];
-const volunteerBenefits=["استثمار الوقت","اكتساب الخبرات والمهارات","المساهمة في خدمة المجتمع","تعزيز الانتماء الوطني","استثمار القدرات والطاقات","بناء علاقات اجتماعية ومهنية","تعزيز السيرة الذاتية","تطوير الذات وبناء الثقة"];
-const supports=["لا يوجد","سكن","إعاشة","معدات وأدوات","مواصلات","تدريب","زي رسمي","إنترنت وشريحة اتصال","تذاكر سفر","خط ساخن"];
-
-let periodCount=0,userData={},attendanceCount=0;
-function showStatus(id,message,type){const box=document.getElementById(id);box.className="validationBox status "+type;box.style.display="block";box.innerHTML=message;}
-function fillSelect(id,list){const s=document.getElementById(id);list.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;s.appendChild(o);});}
-function fillChecks(id,name,list){const box=document.getElementById(id);list.forEach(v=>{const label=document.createElement('label');label.innerHTML=`<input type="checkbox" name="${name}" value="${v}">${v}`;box.appendChild(label);});}
-function init(){fillSelect('mainField',Object.keys(subFields));fillChecks('organizationBenefitsBox','organizationBenefits',organizationBenefits);fillChecks('tasksBox','volunteerTasks',tasks);fillChecks('skillsBox','requiredSkills',skills);fillChecks('volunteerBenefitsBox','volunteerBenefits',volunteerBenefits);fillChecks('supportBox','supportProvided',supports);addPeriod();}
-function login(){
-  const email=document.getElementById("loginEmail").value.trim().toLowerCase();
-  const pass=document.getElementById("loginPass").value.trim();
-  if(!email){showStatus("loginStatus","فضلًا كتابة البريد الإلكتروني أولًا.","err");return;}
-  if(!pass){showStatus("loginStatus","فضلًا كتابة رمز الدخول.","err");return;}
-  showStatus("loginStatus","جاري التحقُّق من البريد الإلكتروني ورمز الدخول...","ok");
-  const old=document.getElementById("loginScript"); if(old) old.remove();
-  const script=document.createElement("script");
-  script.id="loginScript";
-  script.src=scriptURL+"?action=login&email="+encodeURIComponent(email)+"&pass="+encodeURIComponent(pass)+"&callback=handleLogin";
-  script.onerror=function(){showStatus("loginStatus","تعذر الاتصال بـ Apps Script. تأكدي من النشر: Anyone.","err");};
-  document.body.appendChild(script);
+// مؤقتًا (إلى أن نربط الشيت)
+if(email === "busr2026@gmail.com"){
+alert("تم الدخول كمسؤولة النظام 👑");
+} else {
+document.getElementById("errorMsg").style.display = "block";
 }
-function handleLogin(data){
-  if(data.status==="not_found"){showStatus("loginStatus","البريد الإلكتروني غير مسجل في بيانات بُصر.","err");return;}
-  if(data.status==="inactive"){showStatus("loginStatus","حسابك غير نشط. يُرجى إبلاغ مسؤولة النظام.","err");return;}
-  if(data.status==="wrong_pass"){showStatus("loginStatus","رمز الدخول غير صحيح.","err");return;}
-  if(data.status!=="ok"){showStatus("loginStatus","تعذر التحقق من الحساب: "+data.status,"err");return;}
-  userData=data;
-  document.getElementById("loginCard").classList.add("hidden");
-  document.getElementById("formCard").classList.remove("hidden");
-  document.getElementById("topEmail").textContent=data.email||"";
-  document.getElementById("userRoleLabel").textContent=data.role||"منسق";
-  document.getElementById("coordinatorName").textContent=data.name||"";
-  document.getElementById("schoolName").textContent=data.school||"";
-  document.getElementById("stageName").textContent=data.stage||"";
-  document.getElementById("linkedSupervisorName").textContent=data.linkedSupervisor||"غير مدرج";
-  document.getElementById("cityName").textContent=data.city||"الطائف";
 }
-function updateSubFields(){const main=document.getElementById('mainField').value,sub=document.getElementById('subField'),note=document.getElementById('subFieldNote');sub.innerHTML='<option value="">اختر المجال الفرعي</option>';const list=subFields[main]||[];if(list.length===0&&main){sub.disabled=true;note.classList.remove('hidden');}else{sub.disabled=false;note.classList.add('hidden');list.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;sub.appendChild(o);});}}
-function toggleAdditionalRequirements(v){document.getElementById('additionalReqBox').classList.toggle('hidden',v!=='نعم');}
-function addPeriod(){periodCount++;const wrap=document.createElement('div');wrap.className='item';wrap.dataset.period=periodCount;wrap.innerHTML=`<h3>الفترة ${periodCount}</h3><div class="grid grid-2"><div class="field"><label>تاريخ الفترة من <span class="req">*</span></label><input type="date" data-label="تاريخ بداية الفترة ${periodCount}" name="periodDateFrom_${periodCount}" ${periodCount===1?'required':''}></div><div class="field"><label>تاريخ الفترة إلى <span class="req">*</span></label><input type="date" data-label="تاريخ نهاية الفترة ${periodCount}" name="periodDateTo_${periodCount}" ${periodCount===1?'required':''}></div><div class="field"><label>وقت الفترة من <span class="req">*</span></label><input type="time" data-label="وقت بداية الفترة ${periodCount}" name="periodStart_${periodCount}" ${periodCount===1?'required':''}></div><div class="field"><label>وقت الفترة إلى <span class="req">*</span></label><input type="time" data-label="وقت نهاية الفترة ${periodCount}" name="periodEnd_${periodCount}" ${periodCount===1?'required':''}></div><div class="field"><label>عدد المتطوعين <span class="req">*</span></label><input type="number" min="1" data-label="عدد المتطوعين في الفترة ${periodCount}" name="periodVolunteers_${periodCount}" ${periodCount===1?'required':''}></div><div class="field"><label>مقاعد قائمة الانتظار <span class="req">*</span></label><input type="number" min="0" data-label="مقاعد قائمة الانتظار في الفترة ${periodCount}" name="periodWaiting_${periodCount}" ${periodCount===1?'required':''}></div><div class="field full"><label>مشرف الفترة <span class="req">*</span></label><select data-label="مشرف الفترة ${periodCount}" name="periodSupervisor_${periodCount}" ${periodCount===1?'required':''}><option value="">اختر مشرف الفترة</option>${mainSupervisors.map(s=>`<option>${s}</option>`).join('')}</select></div></div>`;document.getElementById('periodsList').appendChild(wrap);}
-function addAttendanceName(){if(attendanceCount>=50){showStatus("validationBox","تم الوصول إلى الحد الأعلى: 50 اسمًا.","err");return;}attendanceCount++;const box=document.createElement("div");box.className="field";box.style.marginTop="10px";box.innerHTML=`<label>اسم المتطوع ${attendanceCount}</label><input name="attendanceName_${attendanceCount}" placeholder="اكتب اسم المتطوع">`;document.getElementById("attendanceList").appendChild(box);}
-function showFormOnly(){document.getElementById("followUpCard").classList.add("hidden");document.getElementById("formArea").classList.remove("hidden");}
-function loadFollowUp(){document.getElementById("formArea").classList.add("hidden");document.getElementById("followUpCard").classList.remove("hidden");showStatus("followUpStatus","جارٍ تحميل الفرص...","ok");const old=document.getElementById("listScript"); if(old) old.remove();const script=document.createElement("script");script.id="listScript";script.src=scriptURL+"?action=list&email="+encodeURIComponent(userData.email)+"&pass="+encodeURIComponent(document.getElementById("loginPass").value.trim())+"&callback=renderFollowUp";document.body.appendChild(script);}
-function renderFollowUp(data){if(data.status!=="ok"){showStatus("followUpStatus","تعذر تحميل الفرص: "+data.status,"err");return;}const box=document.getElementById("followUpList");const items=data.items||[];if(!items.length){box.innerHTML="<div class='hint'>لا توجد فرص للعرض حاليًا.</div>";showStatus("followUpStatus","لا توجد بيانات.","ok");return;}box.innerHTML=items.map(it=>renderItem(it)).join("");showStatus("followUpStatus","تم تحميل البيانات.","ok");}
-function renderItem(it){const canAdmin=userData.isAdmin||String(userData.role||"").includes("مسؤولة")||String(userData.role||"").includes("مدير");const canSupervisor=userData.role==="مشرف"||canAdmin;let actions="";if(canAdmin){actions+=`<div class="itemActions"><input class="miniInput" id="sup_${it.id}" placeholder="تغيير المشرف اختياري"><button class="primary" onclick="approveOpportunity('${it.id}')">اعتماد وإحالة</button></div>`;}if(canSupervisor){actions+=`<div class="itemActions"><button class="secondary" onclick="markSupervisorDone('${it.id}','تم الإدراج في المنصة')">تم الإدراج في المنصة</button><button class="secondary" onclick="markSupervisorDone('${it.id}','تعذر الإدراج')">تعذر الإدراج</button></div>`;}return `<div class="item"><b>${it.opportunity||""}</b><br>المدرسة/الإدارة: ${it.school||""}<br>المنسق: ${it.coordinatorName||""}<br>عدد المتطوعين: ${it.volunteers||""}<br>المشرف: ${it.supervisor||""}<br>حالة الفرصة: ${it.status||""}<br>اعتماد مدير القسم: ${it.managerApproval||""}<br>حالة إدراج المشرف: ${it.supervisorStatus||""}${actions}</div>`;}
-function approveOpportunity(id){const newSup=(document.getElementById("sup_"+id)||{value:""}).value.trim();const cb="approveCb_"+Date.now();window[cb]=function(res){if(res.status==="ok"){showStatus("followUpStatus","تم اعتماد الفرصة وإحالتها.","ok");loadFollowUp();}else{showStatus("followUpStatus","تعذر الاعتماد: "+res.status,"err");}};const s=document.createElement("script");s.src=scriptURL+"?action=managerApprove&email="+encodeURIComponent(userData.email)+"&pass="+encodeURIComponent(document.getElementById("loginPass").value.trim())+"&id="+encodeURIComponent(id)+"&newSupervisor="+encodeURIComponent(newSup)+"&callback="+cb;document.body.appendChild(s);}
-function markSupervisorDone(id,status){const cb="supCb_"+Date.now();window[cb]=function(res){if(res.status==="ok"){showStatus("followUpStatus","تم تحديث حالة الإدراج.","ok");loadFollowUp();}else{showStatus("followUpStatus","تعذر التحديث: "+res.status,"err");}};const s=document.createElement("script");s.src=scriptURL+"?action=supervisorUpdate&email="+encodeURIComponent(userData.email)+"&pass="+encodeURIComponent(document.getElementById("loginPass").value.trim())+"&id="+encodeURIComponent(id)+"&status="+encodeURIComponent(status)+"&callback="+cb;document.body.appendChild(s);}
-function openVolunteerGuide(){window.open(volunteerGuideURL,"_blank");}
-function sendEvidenceToSupervisor(){const title=document.querySelector('[name="opportunityTitle"]').value||'فرصة تطوعية',evidence=document.getElementById('evidenceLink').value||'',subject=`شواهد فرصة تطوعية: ${title}`,body=`السلام عليكم ورحمة الله وبركاته\n\nنرفق لكم شواهد الفرصة التطوعية التالية:\n\nاسم الفرصة: ${title}\n\nرابط الشواهد:\n${evidence}\n\nشاكرين تعاونكم`;window.open(`https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,'_blank');}
-function clearMissing(){document.querySelectorAll('.is-missing').forEach(e=>e.classList.remove('is-missing'));const box=document.getElementById('validationBox');box.style.display='none';box.innerHTML='';}
-function checkRequiredFields(showSuccess=true){clearMissing();const missing=[],form=document.getElementById('opportunityForm');form.querySelectorAll('[required]').forEach(el=>{if(el.type==='checkbox'){if(!el.checked){missing.push({label:el.dataset.label||'حقل مطلوب',el});el.closest('.summary')?.classList.add('is-missing');}}else if(!String(el.value||'').trim()){missing.push({label:el.dataset.label||el.name||'حقل مطلوب',el});el.classList.add('is-missing');}});document.querySelectorAll('.required-group').forEach(group=>{const name=group.dataset.name;if(group.querySelectorAll(`input[name="${name}"]:checked`).length===0){missing.push({label:group.dataset.label||'مجموعة مطلوبة',el:group});group.classList.add('is-missing');}});const box=document.getElementById('validationBox');if(missing.length){box.style.display='block';box.innerHTML='<b>الحقول التي تحتاج إكمال:</b><ul>'+missing.map(m=>`<li>${m.label}</li>`).join('')+'</ul>';missing[0].el.scrollIntoView({behavior:'smooth',block:'center'});return false;}if(showSuccess){showStatus("validationBox","تم فحص الحقول المطلوبة، وكل شيء مكتمل.","ok");}return true;}
-function collectFormData(form){const fd=new FormData(form),data={};for(const[k,v]of fd.entries()){if(data[k])data[k]+="، "+v;else data[k]=v;}return data;}
-document.getElementById('opportunityForm').addEventListener('submit',function(e){e.preventDefault();if(!checkRequiredFields(false))return;const fullData=collectFormData(this),firstPeriodVolunteers=fullData["periodVolunteers_1"]||"";const payload={action:"createOpportunity",email:userData.email||"",pass:document.getElementById("loginPass").value.trim(),opportunity:fullData.opportunityTitle||"",volunteers:firstPeriodVolunteers||"",linkedSupervisor:userData.linkedSupervisor||"",fullData:fullData};showStatus("bottomStatus","جارٍ إرسال الفرصة...","ok");fetch(scriptURL,{method:"POST",mode:"no-cors",body:JSON.stringify(payload)}).then(()=>{showStatus("bottomStatus","تم إرسال الفرصة بنجاح ✨","ok");this.reset();document.getElementById('periodsList').innerHTML='';periodCount=0;addPeriod();document.getElementById('attendanceList').innerHTML='';attendanceCount=0;}).catch(()=>showStatus("bottomStatus","تعذر الإرسال. راجعي الاتصال أو رابط Apps Script.","err"));});
-init();
 </script>
+
 </body>
 </html>
