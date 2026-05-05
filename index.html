@@ -3,194 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>بُصر الفرص التطوعية</title>
 
 <style>
-:root{
---main:#78c2cf;
---dark:#173b36;
---light:#eef9fb;
-}
-
 body{
-font-family:Arial;
-margin:0;
-background:linear-gradient(135deg,#eef8fb,#f7fcfd);
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
+font-family: Arial;
+background:#eef8fb;
+text-align:center;
+padding:30px;
 }
 
 .card{
 background:#fff;
 padding:20px;
 border-radius:20px;
-margin-bottom:15px;
+max-width:400px;
+margin:auto;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
-h1{text-align:center;color:#173b36}
-
-/* دخول */
-.login{
-text-align:center;
-}
-
-input,select,textarea{
+input,textarea{
 width:100%;
+margin:8px 0;
 padding:10px;
-margin-top:6px;
 border-radius:10px;
 border:1px solid #ccc;
 }
 
 button{
-background:var(--main);
-border:none;
 padding:10px 20px;
-color:#fff;
+border:none;
 border-radius:10px;
+background:#78c2cf;
+color:#fff;
 cursor:pointer;
 }
 
-.role{
-background:#eef9fb;
-padding:10px;
-margin-bottom:10px;
-border-radius:10px;
-}
+.hidden{display:none}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card" id="loginBox">
+<h3>تسجيل الدخول</h3>
 
-<h1>بُصر الفرص التطوعية</h1>
+<input id="email" placeholder="البريد">
+<input id="pass" type="password" placeholder="كلمة المرور">
 
-<!-- تسجيل الدخول -->
-<div class="card login" id="loginBox">
-<label>أدخل بريدك الإلكتروني</label>
-<input id="email">
 <button onclick="login()">دخول</button>
+
+<p id="msg"></p>
 </div>
 
-<!-- النظام -->
-<div id="system" style="display:none">
-
-<div class="card">
-<div id="roleBox"></div>
-</div>
-
-<!-- نموذج الفرصة -->
-<div class="card" id="formBox">
-
-<h3>إنشاء فرصة</h3>
+<div class="card hidden" id="formBox">
+<h3>إدخال فرصة تطوعية</h3>
 
 <input id="title" placeholder="مسمى الفرصة">
 <textarea id="desc" placeholder="وصف الفرصة"></textarea>
-
-<select id="field">
-<option>تعليمي</option>
-<option>صحي</option>
-<option>تقني</option>
-</select>
-
-<input id="location" placeholder="الموقع">
+<input id="vol" type="number" placeholder="عدد المتطوعين">
 
 <button onclick="send()">إرسال</button>
 
-</div>
-
-<!-- الطلبات -->
-<div class="card">
-<h3>الطلبات</h3>
-<div id="list"></div>
-</div>
-
-</div>
-
+<p id="msg2"></p>
 </div>
 
 <script>
 
-let userRole="";
+// 🔴 مهم جدًا: ضعي هنا رابط Apps Script (/exec)
+const url = "PUT_YOUR_SCRIPT_URL_HERE";
 
-/* تحديد الدور */
-function getRole(email){
-if(email.includes("coord")) return "منسق";
-if(email.includes("first")) return "معتمد أول";
-if(email.includes("second")) return "معتمد ثان";
-if(email.includes("super")) return "مشرف";
-return "زائر";
-}
+let user = {};
 
-/* دخول */
 function login(){
-let email=document.getElementById("email").value;
-
-google.script.run.withSuccessHandler(function(role){
-userRole=role;
-
-document.getElementById("loginBox").style.display="none";
-document.getElementById("system").style.display="block";
-
-document.getElementById("roleBox").innerHTML=
-"الدور: "+role;
-
-load();
-
-}).getUserRole(email);
+fetch(`${url}?action=login&email=${email.value}&pass=${pass.value}`)
+.then(r=>r.json())
+.then(d=>{
+if(d.status==="ok"){
+user = d;
+loginBox.classList.add("hidden");
+formBox.classList.remove("hidden");
+}else{
+msg.innerText = "فشل الدخول";
+}
+});
 }
 
-/* إرسال */
 function send(){
-
-let data={
-title:document.getElementById("title").value,
-desc:document.getElementById("desc").value,
-field:document.getElementById("field").value,
-location:document.getElementById("location").value
-};
-
-google.script.run.addRequest(data);
-
-alert("تم الإرسال");
-
-}
-
-/* تحميل الطلبات */
-function load(){
-
-google.script.run.withSuccessHandler(function(data){
-
-let html="";
-
-data.forEach(r=>{
-
-html+=`
-<div class="role">
-<b>${r.title}</b><br>
-الحالة: ${r.status}<br>
-<button onclick="approve(${r.id})">اعتماد</button>
-</div>
-`;
-
+fetch(url,{
+method:"POST",
+body:JSON.stringify({
+action:"createOpportunity",
+email:user.email,
+pass:pass.value,
+role:user.role,
+title:title.value,
+description:desc.value,
+volunteers:vol.value
+})
 });
 
-document.getElementById("list").innerHTML=html;
-
-}).getRequests();
-
-}
-
-/* اعتماد */
-function approve(id){
-google.script.run.approve(id,userRole);
-load();
+msg2.innerText = "تم الإرسال ✔";
 }
 
 </script>
