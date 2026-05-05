@@ -2,133 +2,195 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>بُصر | تسجيل الدخول</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>بُصر الفرص التطوعية</title>
 
 <style>
-body {
-    font-family: Tahoma;
-    background: #f5f7f6;
-    margin: 0;
-    padding: 30px;
+:root{
+--main:#78c2cf;
+--dark:#173b36;
+--light:#eef9fb;
 }
 
-.card {
-    max-width: 500px;
-    margin: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+body{
+font-family:Arial;
+margin:0;
+background:linear-gradient(135deg,#eef8fb,#f7fcfd);
 }
 
-.title {
-    font-size: 20px;
-    margin-bottom: 15px;
-    font-weight: bold;
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+.card{
+background:#fff;
+padding:20px;
+border-radius:20px;
+margin-bottom:15px;
 }
 
-.btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #0b8f87;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 5px;
+h1{text-align:center;color:#173b36}
+
+/* دخول */
+.login{
+text-align:center;
 }
 
-.btn:hover {
-    background: #09706a;
+input,select,textarea{
+width:100%;
+padding:10px;
+margin-top:6px;
+border-radius:10px;
+border:1px solid #ccc;
 }
 
-.error {
-    display: none;
-    background: #ffe5e5;
-    color: #a30000;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
+button{
+background:var(--main);
+border:none;
+padding:10px 20px;
+color:#fff;
+border-radius:10px;
+cursor:pointer;
 }
 
-.footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #777;
+.role{
+background:#eef9fb;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
 }
 </style>
-
 </head>
 
 <body>
 
+<div class="container">
+
+<h1>بُصر الفرص التطوعية</h1>
+
+<!-- تسجيل الدخول -->
+<div class="card login" id="loginBox">
+<label>أدخل بريدك الإلكتروني</label>
+<input id="email">
+<button onclick="login()">دخول</button>
+</div>
+
+<!-- النظام -->
+<div id="system" style="display:none">
+
 <div class="card">
+<div id="roleBox"></div>
+</div>
 
-    <div class="title">بوابة الدخول</div>
+<!-- نموذج الفرصة -->
+<div class="card" id="formBox">
 
-    <input id="email" type="email" placeholder="البريد الإلكتروني">
+<h3>إنشاء فرصة</h3>
 
-    <button class="btn" onclick="login()">دخول</button>
+<input id="title" placeholder="مسمى الفرصة">
+<textarea id="desc" placeholder="وصف الفرصة"></textarea>
 
-    <div id="errorMsg" class="error">
-        لا توجد صلاحية محددة لهذا البريد.
-    </div>
+<select id="field">
+<option>تعليمي</option>
+<option>صحي</option>
+<option>تقني</option>
+</select>
+
+<input id="location" placeholder="الموقع">
+
+<button onclick="send()">إرسال</button>
 
 </div>
 
-<div class="footer">
-    busr2026@gmail.com | تطوير بُصر
+<!-- الطلبات -->
+<div class="card">
+<h3>الطلبات</h3>
+<div id="list"></div>
+</div>
+
+</div>
+
 </div>
 
 <script>
 
-function login() {
-    const email = document.getElementById("email").value.trim().toLowerCase();
+let userRole="";
 
-    if (email === "busr2026@gmail.com") {
-
-        document.querySelector(".card").innerHTML = `
-        <div class="title">تم الدخول كمسؤولة النظام 👑</div>
-
-        <div style="background:#eef6f5;border-radius:16px;padding:16px;line-height:2;margin-bottom:15px;">
-        <b>البريد:</b> busr2026@gmail.com<br>
-        <b>الدور:</b> مسؤولة النظام<br>
-        <b>الصلاحية:</b> كامل الصلاحيات
-        </div>
-
-        <button class="btn" onclick="showOpportunityForm()">إدخال فرصة تطوعية</button>
-        <button class="btn" onclick="showAdminPanel()">متابعة واعتماد الفرص</button>
-
-        <div id="workArea" style="margin-top:20px;"></div>
-        `;
-
-    } else {
-        document.getElementById("errorMsg").style.display = "block";
-    }
+/* تحديد الدور */
+function getRole(email){
+if(email.includes("coord")) return "منسق";
+if(email.includes("first")) return "معتمد أول";
+if(email.includes("second")) return "معتمد ثان";
+if(email.includes("super")) return "مشرف";
+return "زائر";
 }
 
-function showOpportunityForm() {
-    document.getElementById("workArea").innerHTML = `
-        <h3>إدخال فرصة تطوعية</h3>
-        <input type="text" placeholder="اسم الفرصة">
-        <input type="number" placeholder="عدد المتطوعين">
-        <button class="btn">إرسال</button>
-    `;
+/* دخول */
+function login(){
+let email=document.getElementById("email").value;
+
+google.script.run.withSuccessHandler(function(role){
+userRole=role;
+
+document.getElementById("loginBox").style.display="none";
+document.getElementById("system").style.display="block";
+
+document.getElementById("roleBox").innerHTML=
+"الدور: "+role;
+
+load();
+
+}).getUserRole(email);
 }
 
-function showAdminPanel() {
-    document.getElementById("workArea").innerHTML = `
-        <h3>لوحة مسؤولة النظام</h3>
-        <p>هنا ستظهر الفرص للاعتماد والمتابعة.</p>
-    `;
+/* إرسال */
+function send(){
+
+let data={
+title:document.getElementById("title").value,
+desc:document.getElementById("desc").value,
+field:document.getElementById("field").value,
+location:document.getElementById("location").value
+};
+
+google.script.run.addRequest(data);
+
+alert("تم الإرسال");
+
+}
+
+/* تحميل الطلبات */
+function load(){
+
+google.script.run.withSuccessHandler(function(data){
+
+let html="";
+
+data.forEach(r=>{
+
+html+=`
+<div class="role">
+<b>${r.title}</b><br>
+الحالة: ${r.status}<br>
+<button onclick="approve(${r.id})">اعتماد</button>
+</div>
+`;
+
+});
+
+document.getElementById("list").innerHTML=html;
+
+}).getRequests();
+
+}
+
+/* اعتماد */
+function approve(id){
+google.script.run.approve(id,userRole);
+load();
 }
 
 </script>
