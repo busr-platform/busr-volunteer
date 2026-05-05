@@ -6,162 +6,110 @@
 
 <style>
 body {
-margin: 0;
-font-family: "Tahoma", sans-serif;
-background: #f5f7f6;
+    font-family: Tahoma;
+    background: #f5f7f6;
+    margin: 0;
+    padding: 30px;
 }
 
-/* الحاوية */
-.container {
-max-width: 600px;
-margin: 60px auto;
-padding: 20px;
-}
-
-/* الهيدر */
-.header {
-background: linear-gradient(135deg,#cde7e3,#b7d8d3);
-padding: 25px;
-border-radius: 20px;
-margin-bottom: 25px;
-}
-
-.header h1 {
-margin: 0;
-font-size: 26px;
-}
-
-.header p {
-margin-top: 8px;
-color: #2f4f4f;
-}
-
-/* بطاقة الدخول */
 .card {
-background: white;
-padding: 25px;
-border-radius: 20px;
-box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* عنوان */
 .title {
-font-size: 22px;
-margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
-/* صف الإدخال */
-.input-row {
-display: flex;
-align-items: center;
-border: 2px solid #d8e6e3;
-border-radius: 14px;
-padding: 10px 15px;
-background: #fff;
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
-/* الإيميل */
-.input-row input {
-border: none;
-outline: none;
-font-size: 16px;
-width: 100%;
-direction: ltr;
-}
-
-/* الأيقونة */
-.icon {
-font-size: 18px;
-margin-right: 10px;
-}
-
-/* زر الدخول */
 .btn {
-margin-top: 15px;
-background: #4fa7a1;
-color: white;
-border: none;
-padding: 10px 25px;
-border-radius: 12px;
-cursor: pointer;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #0b8f87;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 5px;
 }
 
-/* رسالة الخطأ */
+.btn:hover {
+    background: #09706a;
+}
+
 .error {
-margin-top: 15px;
-background: #fdeeee;
-color: #7a2f2f;
-padding: 12px;
-border-radius: 12px;
-text-align: center;
-font-size: 15px;
+    display: none;
+    background: #ffe5e5;
+    color: #a30000;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
-/* الفوتر */
 .footer {
-margin-top: 20px;
-text-align: center;
-color: #666;
-font-size: 13px;
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
-
-<div class="header">
-<h1>بُصر الفرص التطوعية</h1>
-<p>ثقة فرصة في كل حين سعيٌ نبيل وبإجراءٍ يسير</p>
-</div>
-
 <div class="card">
-<div class="title">بوابة الدخول</div>
 
-<!-- الإيميل -->
-<div class="input-row">
-<input id="email" type="text" value="busr2026@gmail.com">
-<div class="icon">👤</div>
-</div>
+    <div class="title">بوابة الدخول</div>
 
-<button class="btn" onclick="login()">دخول</button>
+    <input id="email" type="email" placeholder="البريد الإلكتروني">
 
-<!-- رسالة الخطأ -->
-<div id="errorMsg" class="error" style="display:none;">
-لا توجد صلاحية محددة لهذا البريد.
-</div>
+    <button class="btn" onclick="login()">دخول</button>
+
+    <div id="errorMsg" class="error">
+        لا توجد صلاحية محددة لهذا البريد.
+    </div>
 
 </div>
 
 <div class="footer">
-busr2026@gmail.com | تطوير بُصر
-</div>
-
+    busr2026@gmail.com | تطوير بُصر
 </div>
 
 <script>
-<script>
+
 function login() {
     const email = document.getElementById("email").value.trim().toLowerCase();
 
     if (email === "busr2026@gmail.com") {
-        alert("تم الدخول كمسؤولة النظام 👑");
 
         document.querySelector(".card").innerHTML = `
-            <div class="title">تم الدخول بنجاح 👑</div>
+        <div class="title">تم الدخول كمسؤولة النظام 👑</div>
 
-            <div style="background:#eef6f5;border-radius:16px;padding:16px;line-height:2;margin-bottom:15px;">
-                <b>البريد:</b> busr2026@gmail.com<br>
-                <b>الدور:</b> مسؤولة النظام<br>
-                <b>الصلاحية:</b> كامل الصلاحيات
-            </div>
+        <div style="background:#eef6f5;border-radius:16px;padding:16px;line-height:2;margin-bottom:15px;">
+        <b>البريد:</b> busr2026@gmail.com<br>
+        <b>الدور:</b> مسؤولة النظام<br>
+        <b>الصلاحية:</b> كامل الصلاحيات
+        </div>
 
-            <button class="btn" onclick="showOpportunityForm()">إدخال فرصة تطوعية</button>
-            <button class="btn" onclick="showAdminPanel()">متابعة واعتماد الفرص</button>
+        <button class="btn" onclick="showOpportunityForm()">إدخال فرصة تطوعية</button>
+        <button class="btn" onclick="showAdminPanel()">متابعة واعتماد الفرص</button>
 
-            <div id="workArea" style="margin-top:20px;"></div>
+        <div id="workArea" style="margin-top:20px;"></div>
         `;
+
     } else {
         document.getElementById("errorMsg").style.display = "block";
     }
@@ -170,7 +118,7 @@ function login() {
 function showOpportunityForm() {
     document.getElementById("workArea").innerHTML = `
         <h3>إدخال فرصة تطوعية</h3>
-        <input type="text" placeholder="اسم الفرصة" style="margin-bottom:10px;">
+        <input type="text" placeholder="اسم الفرصة">
         <input type="number" placeholder="عدد المتطوعين">
         <button class="btn">إرسال</button>
     `;
@@ -182,6 +130,7 @@ function showAdminPanel() {
         <p>هنا ستظهر الفرص للاعتماد والمتابعة.</p>
     `;
 }
+
 </script>
 
 </body>
